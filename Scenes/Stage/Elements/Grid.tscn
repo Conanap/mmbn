@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Stage/Elements/Grid.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Stage/Elements/Panel.tscn" type="PackedScene" id=3]
+
+[node name="Grid" type="TileMap"]
+cell_size = Vector2( 192, 128 )
+format = 1
+script = ExtResource( 1 )
+
+[node name="Panel" parent="." instance=ExtResource( 3 )]
+
+[node name="Panel2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 128 )
+
+[node name="Panel3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 256 )
+
+[node name="Panel4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192, 0 )
+
+[node name="Panel5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 384, 0 )
+
+[node name="Panel6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192, 128 )
+
+[node name="Panel7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192, 256 )
+
+[node name="Panel9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 384, 128 )
+
+[node name="Panel8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 384, 256 )

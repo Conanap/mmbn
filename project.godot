@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mmbn"
+run/main_scene="res://Scenes/Stage/Arena.tscn"
 config/icon="res://icon.png"
 
 [rendering]
