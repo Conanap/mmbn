@@ -6,5 +6,7 @@
 [node name="Enemy Grid" type="Area2D"]
 
 [node name="Grid" parent="." instance=ExtResource( 2 )]
+charType = 1
 
 [node name="Enemy" parent="Grid" instance=ExtResource( 1 )]
+z_index = 10

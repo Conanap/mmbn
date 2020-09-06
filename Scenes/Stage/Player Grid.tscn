@@ -8,3 +8,4 @@
 [node name="Grid" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="Grid" instance=ExtResource( 1 )]
+z_index = 10
