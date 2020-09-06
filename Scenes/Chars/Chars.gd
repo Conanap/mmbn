@@ -19,8 +19,5 @@ func _ready():
 
 func move_to_pane(var dir):
 	set_process(false)
-
 	self.position = dir
-	# $AnimationPlayer.play("move")
-
 	set_process(true)
