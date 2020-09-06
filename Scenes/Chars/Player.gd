@@ -27,9 +27,7 @@ func _input(event):
 		dir.y -= 1
 
 	if dir.x || dir.y:
-		var newPos = Grid.try_to_move_to(self.position, dir)
-		move_to_pane(newPos)
-		$PItemSpwnPt.position = newPos + Vector2(27, 0)
+		move_to_pane(Grid.try_to_move_to(self.position, dir))
 
 	if event.is_action_pressed("attack") :
 		print('attack!')
@@ -47,4 +45,5 @@ func spawn_item(itemType):
 
 	# owner.add_child will add to global
 	owner.add_child(item)
+	$PItemSpwnPt.position = self.position + Vector2(item.size.x / 2 + 27, 0)
 	item.transform = $PItemSpwnPt.transform

@@ -12,6 +12,7 @@ func _init(var initx=1, var inity=1, var inithealth=100):
 	charx = initx
 	chary = inity
 	health = inithealth
+	self.add_to_group('chars')
 
 func _ready():
 	move_to_pane(Grid.try_to_move_to(self.position, Vector2(charx, chary)))

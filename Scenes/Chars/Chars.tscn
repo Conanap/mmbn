@@ -2,5 +2,7 @@
 
 [ext_resource path="res://Scenes/Chars/Chars.gd" type="Script" id=1]
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=[
+"chars",
+]]
 script = ExtResource( 1 )
