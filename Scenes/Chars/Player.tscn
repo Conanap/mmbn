@@ -4,11 +4,11 @@
 [ext_resource path="res://Assets/MainChar/playerGrey_walk1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Chars/Player.gd" type="Script" id=3]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 25.0
-height = 22.0
+height = 16.3534
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
@@ -19,9 +19,12 @@ animations = [ {
 [node name="Player" type="Area2D"]
 script = ExtResource( 3 )
 
+[node name="PItemSpwnPt" type="Position2D" parent="."]
+position = Vector2( 27, 0 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )

@@ -2,5 +2,6 @@
 
 [ext_resource path="res://Scenes/Effects/Projectile.gd" type="Script" id=1]
 
-[node name="Node2D" type="Node2D"]
+[node name="Projectile" type="Area2D"]
 script = ExtResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
