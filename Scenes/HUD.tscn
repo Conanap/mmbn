@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 margin_right = 84.0
 margin_bottom = 32.0
 text = "0"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -21,3 +22,186 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CardList" type="Panel" parent="."]
+margin_left = 785.202
+margin_top = 447.0
+margin_right = 1329.2
+margin_bottom = 575.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="CardList"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 537.0
+margin_bottom = 120.0
+color = Color( 0.517647, 0.517647, 0.517647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CardList"]
+margin_left = 39.0363
+margin_top = 24.0
+margin_right = 117.036
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CardList"]
+margin_left = 139.745
+margin_top = 24.0
+margin_right = 220.745
+margin_bottom = 102.0
+
+[node name="ColorRect3" type="ColorRect" parent="CardList"]
+margin_left = 242.703
+margin_top = 24.0
+margin_right = 321.703
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="CardList"]
+margin_left = 437.582
+margin_top = 24.0
+margin_right = 509.582
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="CardList"]
+margin_left = 344.037
+margin_top = 24.0
+margin_right = 416.037
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardSel" type="Panel" parent="."]
+margin_left = 20.1458
+margin_top = 447.0
+margin_right = 795.146
+margin_bottom = 575.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="CardSel"]
+margin_left = 11.0562
+margin_top = 8.47192
+margin_right = 765.056
+margin_bottom = 120.472
+color = Color( 0.517647, 0.517647, 0.517647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect6" type="ColorRect" parent="CardSel"]
+margin_left = 47.818
+margin_top = 24.0
+margin_right = 119.818
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect7" type="ColorRect" parent="CardSel"]
+margin_left = 654.52
+margin_top = 24.0
+margin_right = 726.52
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect8" type="ColorRect" parent="CardSel"]
+margin_left = 566.321
+margin_top = 24.0
+margin_right = 638.321
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect9" type="ColorRect" parent="CardSel"]
+margin_left = 480.795
+margin_top = 24.0
+margin_right = 552.795
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect10" type="ColorRect" parent="CardSel"]
+margin_left = 392.596
+margin_top = 24.0
+margin_right = 464.596
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect11" type="ColorRect" parent="CardSel"]
+margin_left = 307.069
+margin_top = 24.0
+margin_right = 379.069
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect12" type="ColorRect" parent="CardSel"]
+margin_left = 219.761
+margin_top = 24.0
+margin_right = 291.761
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect13" type="ColorRect" parent="CardSel"]
+margin_left = 134.235
+margin_top = 24.0
+margin_right = 206.235
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonPanel" type="Panel" parent="."]
+margin_left = 1338.0
+margin_top = 447.0
+margin_right = 1420.0
+margin_bottom = 575.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="ButtonPanel"]
+margin_left = 7.0
+margin_top = 24.0
+margin_right = 76.0
+margin_bottom = 55.0
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiscardButton" type="Button" parent="ButtonPanel"]
+margin_left = 7.0
+margin_top = 71.25
+margin_right = 76.0
+margin_bottom = 103.25
+text = "DISCARD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ButtonPanel/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="ButtonPanel/DiscardButton" to="." method="_on_DiscardButton_pressed"]

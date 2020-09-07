@@ -1,14 +1,17 @@
 extends CanvasLayer
 
-var drawReady = false
+var drawReady = true
 var drawReadyTime = 0
 var drawTime = 8
 
 func _ready():
 	EventBus.connect("health_player_update", self, "_update_health")
+	EventBus.connect("drawSummoned", self, "on_draw_summon")
+	
+	$DrawTimerBar.value = 100
 
 func _process(delta):
-	if $DrawTimerBar.value < 100 && !drawReady:
+	if !drawReady && $DrawTimerBar.value < 100:
 		$DrawTimerBar.value += delta / drawTime * 100
 	elif !drawReady && $DrawTimerBar.value == 100:
 		$DrawTimerBar.value = 0
@@ -23,6 +26,28 @@ func _process(delta):
 
 	drawReadyTime += delta
 
+	if drawReady:
+		EventBus.emit_signal("drawReady")
+
 func _update_health(var health):
 	$HPLabel.text = str(health)
-	print("new health", health)
+
+func on_draw_summon():
+	$CardList.show()
+	$CardSel.show()
+	$ButtonPanel.show()
+
+func hide_draw():
+	$CardList.hide()
+	$CardSel.hide()
+	$ButtonPanel.hide()
+	$DrawTimerBar.value = 0
+	drawReady = false
+
+func _on_StartButton_pressed():
+	hide_draw()
+	EventBus.emit_signal("drawStart")
+
+func _on_DiscardButton_pressed():
+	hide_draw()
+	EventBus.emit_signal("drawDiscard")

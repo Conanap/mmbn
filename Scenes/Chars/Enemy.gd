@@ -9,6 +9,3 @@ func _init(var initx=1, var inity=1, var inithealth=100):
 
 func _process(_delta):
 	var dir = Vector2()
-
-	#if dir.x || dir.y:
-		#move_to_pane(Grid.try_to_move_to(self.position, dir))

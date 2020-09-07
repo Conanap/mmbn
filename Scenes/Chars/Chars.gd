@@ -2,7 +2,7 @@ extends Area2D
 
 class_name Chars
 
-export var health = 100
+export var health = 1
 export var charx = 1
 export var chary = 1
 

@@ -7,16 +7,19 @@ export (PackedScene) var otObj
 
 var Bullet = preload('res://Scenes/Effects/Bullet.tscn')
 
+var draw_ready = false
+
 func _init(var initx=1, var inity=1, var inithealth=100):
 	charx = initx
 	chary = inity
 	health = inithealth
 
 func _ready():
+	# connecting to event bus
+	EventBus.connect("drawReady", self, "_on_draw_ready")
 	EventBus.emit_signal("health_player_update", self.health)
-	print("player health", self.health)
-	$PItemSpwnPt.position = self.position + Vector2(27, 0)
 
+	$PItemSpwnPt.position = self.position + Vector2(27, 0)
 
 func _input(event):
 	var dir = Vector2()
@@ -36,6 +39,10 @@ func _input(event):
 		print('attack!')
 		spawn_item("bullet")
 
+	if event.is_action_pressed("draw") && draw_ready:
+		draw_ready = false
+		EventBus.emit_signal("drawSummoned")
+
 func spawn_item(itemType):
 	var item;
 
@@ -54,3 +61,6 @@ func spawn_item(itemType):
 func change_health(var health : int):
 	.change_health(health)
 	emit_signal("health_player_update", self.health)
+
+func _on_draw_ready():
+	self.draw_ready = true
