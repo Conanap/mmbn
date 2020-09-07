@@ -7,7 +7,7 @@ export (PackedScene) var otObj
 
 var Bullet = preload('res://Scenes/Effects/Bullet.tscn')
 
-var draw_ready = false
+var input_disabled = true
 
 func _init(var initx=1, var inity=1, var inithealth=100):
 	charx = initx
@@ -16,12 +16,16 @@ func _init(var initx=1, var inity=1, var inithealth=100):
 
 func _ready():
 	# connecting to event bus
-	EventBus.connect("drawReady", self, "_on_draw_ready")
+	EventBus.connect("disablePlayerInput", self, "_on_disable_player_input")
+
 	EventBus.emit_signal("health_player_update", self.health)
 
 	$PItemSpwnPt.position = self.position + Vector2(27, 0)
 
 func _input(event):
+	if input_disabled:
+		return
+
 	var dir = Vector2()
 	if event.is_action_pressed("ui_right"):
 		dir.x += 1
@@ -39,8 +43,7 @@ func _input(event):
 		print('attack!')
 		spawn_item("bullet")
 
-	if event.is_action_pressed("draw") && draw_ready:
-		draw_ready = false
+	if event.is_action_pressed("draw"):
 		EventBus.emit_signal("drawSummoned")
 
 func spawn_item(itemType):
@@ -48,6 +51,7 @@ func spawn_item(itemType):
 
 	if itemType == 'bullet':
 		item = Bullet.instance()
+		item.OGGrp = "Player"
 
 	if !item:
 		print("cannot identify item type / cannot instanciate item")
@@ -61,6 +65,6 @@ func spawn_item(itemType):
 func change_health(var health : int):
 	.change_health(health)
 	emit_signal("health_player_update", self.health)
-
-func _on_draw_ready():
-	self.draw_ready = true
+	
+func _on_disable_player_input(var val : bool):
+	self.input_disabled = val

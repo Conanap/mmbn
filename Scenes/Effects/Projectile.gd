@@ -6,6 +6,10 @@ class_name Projectile
 # speed
 var speed : int
 
+# must be set on instancing:
+# originator
+var OGGrp
+
 # must be set on ready:
 # size
 var size
@@ -17,5 +21,5 @@ func _physics_process(delta):
 	position += transform.x * speed * delta
 
 func _on_Projectile_area_entered(body):
-	if body.is_in_group('chars'):
+	if body.is_in_group('chars') && !body.is_in_group(OGGrp):
 		queue_free()

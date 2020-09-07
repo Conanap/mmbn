@@ -33,9 +33,11 @@ func _update_health(var health):
 	$HPLabel.text = str(health)
 
 func on_draw_summon():
-	$CardList.show()
-	$CardSel.show()
-	$ButtonPanel.show()
+	if drawReady:
+		$CardList.show()
+		$CardSel.show()
+		$ButtonPanel.show()
+		EventBus.emit_signal("disablePlayerInput", true)
 
 func hide_draw():
 	$CardList.hide()
@@ -43,6 +45,7 @@ func hide_draw():
 	$ButtonPanel.hide()
 	$DrawTimerBar.value = 0
 	drawReady = false
+	EventBus.emit_signal("disablePlayerInput", false)
 
 func _on_StartButton_pressed():
 	hide_draw()

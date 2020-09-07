@@ -8,3 +8,4 @@ signal drawReady
 signal drawSummoned
 signal drawStart
 signal drawDiscard
+signal disablePlayerInput(val)
