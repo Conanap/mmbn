@@ -21,3 +21,10 @@ func move_to_pane(var dir):
 	set_process(false)
 	self.position = dir
 	set_process(true)
+
+func change_health(var delta : int):
+	self.health += delta
+	return health
+
+func get_health():
+	return health

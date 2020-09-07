@@ -72,9 +72,13 @@ config/name="Mmbn"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+EventBus="*res://Scripts/EventBus.gd"
+
 [display]
 
-window/size/width=2048
+window/size/width=1440
 
 [input]
 

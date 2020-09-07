@@ -13,7 +13,10 @@ func _init(var initx=1, var inity=1, var inithealth=100):
 	health = inithealth
 
 func _ready():
+	EventBus.emit_signal("health_player_update", self.health)
+	print("player health", self.health)
 	$PItemSpwnPt.position = self.position + Vector2(27, 0)
+
 
 func _input(event):
 	var dir = Vector2()
@@ -47,3 +50,7 @@ func spawn_item(itemType):
 	owner.add_child(item)
 	$PItemSpwnPt.position = self.position + Vector2(item.size.x / 2 + 27, 0)
 	item.transform = $PItemSpwnPt.transform
+
+func change_health(var health : int):
+	.change_health(health)
+	emit_signal("health_player_update", self.health)
